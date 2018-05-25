@@ -60,3 +60,11 @@ end
 def remove_customer_cash(customer_details, cash)
   customer_details[:cash] -= cash
 end
+
+def customer_pet_count(customer_details)
+    customer_details[:pets].count
+end
+
+def add_pet_to_customer(customer_details, new_pet)
+  customer_details[:pets].push(new_pet) 
+end
