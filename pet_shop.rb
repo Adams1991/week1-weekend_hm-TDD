@@ -40,3 +40,19 @@ def find_pet_by_name(pet_shop_details, pet_name)
   end
   return nil
 end
+
+def remove_pet_by_name(pet_shop_details, pet_name)
+  for pet in pet_shop_details[:pets]
+    if pet_name == pet[:name]
+      pet_shop_details[:pets].delete(pet)
+    end
+  end
+end
+
+def add_pet_to_stock(pet_shop_details, new_pet)
+  pet_shop_details[:pets].push(new_pet)
+end
+
+# def customer_cash
+#
+# end
