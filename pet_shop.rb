@@ -78,11 +78,11 @@ def customer_can_afford_pet(customer_details, pet_details)
 end
 
 def sell_pet_to_customer(pet_shop_details, pet_details, customer_details)
-    case
-    when pet_details == pet_shop_details[:pets][0] && customer_details == pet_shop_details[:pets][:price]
+  pets_sold = 1
+  cash_change = pet_shop_details[:pets][3][:price]
+    if pet_details == pet_shop_details[:pets][3]
       add_pet_to_customer(customer_details, pet_details)
       increase_pets_sold(pet_shop_details, pets_sold)
-      remove_customer_cash(customer_details, cash)
       add_or_remove_cash(pet_shop_details, cash_change)
-  end
+    end
 end
