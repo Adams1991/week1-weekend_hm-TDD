@@ -188,7 +188,7 @@ class TestPetShop < Minitest::Test
 
       assert_equal(1, customer_pet_count(customer))
       assert_equal(1, pets_sold(@pet_shop))
-      # remove_customer_cash(customer_details, cash)
+      assert_equal(100, customer_cash(customer))
       assert_equal(1900, total_cash(@pet_shop))
     end
   #
@@ -215,7 +215,7 @@ class TestPetShop < Minitest::Test
   #   assert_equal(0, customer_pet_count(customer))
   #   assert_equal(0, pets_sold(@pet_shop))
   #   assert_equal(1000, customer_cash(@pet_shop))
-  #   assert_equal(1000, total_cash(@pet_shop))
+  #   assert_equal(50, customer_cash(customer))
   # end
 
 end
