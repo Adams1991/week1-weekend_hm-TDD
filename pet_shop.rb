@@ -57,8 +57,8 @@ def customer_cash(customer_details)
   return customer_details[:cash]
 end
 
-def remove_customer_cash(customer_details, cash)
-  customer_details[:cash] -= cash
+def remove_customer_cash(customer_details, cash_change)
+  customer_details[:cash] -= cash_change
 end
 
 def customer_pet_count(customer_details)
@@ -80,12 +80,14 @@ end
 def sell_pet_to_customer(pet_shop_details, pet_details, customer_details)
   pets_sold = 1
   cash_change = pet_shop_details[:pets][3][:price]
-  cash = pet_shop_details[:pets][3][:price]
-    if pet_details == pet_shop_details[:pets][3] &&
+  for pet in pet_shop_details[:pets]
+    if pet_details == pet &&
       customer_can_afford_pet(customer_details, pet_details) == true
+    then
       add_pet_to_customer(customer_details, pet_details)
       increase_pets_sold(pet_shop_details, pets_sold)
       add_or_remove_cash(pet_shop_details, cash_change)
-      remove_customer_cash(customer_details, cash)
+      remove_customer_cash(customer_details, cash_change)
     end
+  end
 end
